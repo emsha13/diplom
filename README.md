@@ -1,2 +1,2 @@
-# diplom
-diplom project
+# diploma
+diploma project
