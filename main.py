@@ -76,14 +76,14 @@ class StartProc:
 			self.checkboxes[k].place(relx = 0.35, rely = 0.2 + 0.1*k)
 
 		#create button for go to next page
-		lb_bt = tk.Button(self.frm, text = 'Next', font = self.highlightFont3, padx = 50,
-									fg = self.button_color, background = self.bg_clr)
+		lb_bt = tk.Button(self.frm, text = 'Next', font = self.highlightFont3, padx = 50, activebackground = self.bg_clr,
+									activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr, highlightcolor = self.bg_clr)
 		lb_bt.bind('<Button-1>', self.start_page)
 		lb_bt.place(relx = 0.5, rely = .8, anchor = 'n')
 
 		#create button for exit the app
-		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2,
-									fg = self.button_color, background = self.bg_clr)
+		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2, activebackground = self.bg_clr,
+									activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		but_quit.bind('<Button-1>', quit)
 		but_quit.place(relx = 0.91, rely = 0.02)
 
@@ -108,7 +108,7 @@ class StartProc:
 		self.frm1.place(relx = 0.5, rely = 0.55, anchor = 'center', relheight = 0.4, relwidth = 0.6)
 		lb_textes = ttk.Label(self.frm1,  text = 'white', 
 					font = self.highlightFont2, foreground = 'red', background = self.bg_clr)
-		lb_textes.place(relx = 0.5, rely = 0.05, anchor = 'center')
+		lb_textes.place(relx = 0.5, rely = 0.07, anchor = 'center')
 		
 		#create support frame for buttons for example
 		self.frm_buts = tk.Frame(self.frm1, background = self.bg_clr)
@@ -134,18 +134,18 @@ class StartProc:
 		lb_ans.place(relx = 0.5, rely = 0.95, anchor = 'center')
 
 		#create button for start test with command self.start()  
-		lb_bt = tk.Button(self.frm, text = 'Start', font = self.highlightFont3, padx = 50,
-							fg = self.button_color, background = self.bg_clr)
+		lb_bt = tk.Button(self.frm, text = 'Start', font = self.highlightFont3, padx = 50, activebackground = self.bg_clr,
+							activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		lb_bt.bind('<Button-1>', self.start)
 		lb_bt.place(relx = 0.5, rely = 0.8, anchor = 'n')
 
 		#create buttons for back and exit 
-		but_back = tk.Button(self.frame, text = '<', font = self.highlightFont2,
-							fg = self.button_color, background = self.bg_clr)
+		but_back = tk.Button(self.frame, text = '<', font = self.highlightFont2, activebackground = self.bg_clr,
+								activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		but_back.bind('<Button-1>', self.chose_page)
 		but_back.place(relx = 0.02, rely = 0.02)
-		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2,
-							fg = self.button_color, background = self.bg_clr)
+		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2, activebackground = self.bg_clr,
+								activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		but_quit.bind('<Button-1>', quit)
 		but_quit.place(relx = 0.91, rely = 0.02)
 		
@@ -190,8 +190,8 @@ class StartProc:
 		#create the buttons using Buttons instance of the Proc instance
 		buts = list()
 		for but in self.proc.buts.text_buttons:
-			but = tk.Button(self.frm_buts, text = self.proc.buts.text_buttons[but], pady = 20,
-								bg = self.bg_clr, fg = self.text_color2,  font = self.highlightFont3)
+			but = tk.Button(self.frm_buts, text = self.proc.buts.text_buttons[but], pady = 20, activebackground = self.bg_clr,
+								activeforeground = self.text_color2, bg = self.bg_clr, fg = self.text_color2,  font = self.highlightFont3)
 			but.bind('<Button-1>', self.buts_fun)
 			buts.append(but)
 		
@@ -202,12 +202,12 @@ class StartProc:
 		buts[3].place(relx = .5, rely = .5, relheight = .5, relwidth = .5)
 
 		#create buttons for back and exit
-		but_back = tk.Button(self.frame, text = '<', font = self.highlightFont2,
-							fg = self.button_color, background = self.bg_clr)
+		but_back = tk.Button(self.frame, text = '<', font = self.highlightFont2, activebackground = self.bg_clr,
+								activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		but_back.bind('<Button-1>', self.start_page)
 		but_back.place(relx = 0.02, rely = 0.02)
-		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2,
-							fg = self.button_color, background = self.bg_clr)
+		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2, activebackground = self.bg_clr,
+								activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		but_quit.bind('<Button-1>', quit)
 		but_quit.place(relx = 0.91, rely = 0.02)
 		
@@ -253,14 +253,14 @@ class StartProc:
 		lbl = tk.Label(self.frame, text = text, pady = 200, 
 							font = self.highlightFont2, bg = self.bg_clr, fg = self.text_color1)
 		lbl.pack()
-		lb_bt = tk.Button(self.frame, text = 'Main page', font = self.highlightFont3, padx = 50,
-									fg = self.button_color, background = self.bg_clr)
+		lb_bt = tk.Button(self.frame, text = 'Main page', font = self.highlightFont3, padx = 50, activebackground = self.bg_clr,
+							activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		
 		#create button for go to the chose page and exit the app
 		lb_bt.bind('<Button-1>', self.chose_page)
 		lb_bt.place(relx = 0.5, rely = 0.8, anchor = 'n')
-		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2,
-							fg = self.button_color, background = self.bg_clr)
+		but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2, activebackground = self.bg_clr,
+								activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
 		but_quit.bind('<Button-1>', quit)
 		but_quit.place(relx = 0.91, rely = 0.02)
 
