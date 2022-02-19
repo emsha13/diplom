@@ -165,7 +165,7 @@ class StartProc:
 
 	#function for conver color from rgb to HEX
 	def convert_color(self, tup):
-		return '#%02x%02x%02x' % tup
+		return '#' + ''.join([hex(x)[2:] if len(hex(x)) == 4 else hex(x)[2:] + '0' for x in tup])
 
 	#function for create a test page with label of question and buttons for answers' variants
 	def fun(self, *args):
