@@ -163,10 +163,6 @@ class StartProc:
 		#start the test
 		self.fun()
 
-	#function for conver color from rgb to HEX
-	def convert_color(self, tup):
-		return '#' + ''.join([hex(x)[2:] if len(hex(x)) == 4 else hex(x)[2:] + '0' for x in tup])
-
 	#function for create a test page with label of question and buttons for answers' variants
 	def fun(self, *args):
 
@@ -180,7 +176,8 @@ class StartProc:
 
 		#receive the text and text color from the Text_ instance of the Proc instance
 		lb_textes = ttk.Label(self.frm1, padding = (10, 150, 10, 0), text = self.proc.text.word, 
-					font = self.highlightFont, foreground = self.convert_color(self.proc.text.color), background = self.bg_clr)
+					foreground = (lambda tup: '#' + ''.join([hex(x)[2:] if len(hex(x)) == 4 else hex(x)[2:] + '0' for x in tup]))(self.proc.text.color), 
+					background = self.bg_clr, font = self.highlightFont,)
 		lb_textes.pack()
 
 		#create the support frame for the buttons locate 
