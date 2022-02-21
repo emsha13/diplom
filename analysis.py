@@ -148,6 +148,11 @@ class Analysis:
 				#native language is catch answers' language
 				self.finish_answer = self.catch_answer
 
+			else:
+
+				#no possible determinate
+				self.finish_answer = False	
+
 		except:
 			#no possible determinate
 			self.finish_answer = False
