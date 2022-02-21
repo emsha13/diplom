@@ -9,13 +9,19 @@ from analysis import Analysis
 #class for all internal process in app
 class Proc:
 
-	def __init__(self, langs):
+	def __init__(self, langs = False):
 		
 		#languages for tests' questions
 		self.langs = langs
 		
-		#start the process
-		self.start_proc()
+		#check the number of langs
+		if len(self.langs) > 1:
+			
+			#start the process
+			self.start_proc()
+		
+		else:
+			pass
 
 	def start_proc(self):
 		

@@ -78,7 +78,7 @@ class StartProc:
 		#create button for go to next page
 		lb_bt = tk.Button(self.frm, text = 'Next', font = self.highlightFont3, padx = 50, activebackground = self.bg_clr,
 									activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr, highlightcolor = self.bg_clr)
-		lb_bt.bind('<Button-1>', self.start_page)
+		lb_bt.bind('<Button-1>', self.check_number_languages_page)
 		lb_bt.place(relx = 0.5, rely = .8, anchor = 'n')
 
 		#create button for exit the app
@@ -90,11 +90,44 @@ class StartProc:
 		#start mainloop app
 		self.root.mainloop()
 	
-	def start_page(self, *args):
+	def check_number_languages_page(self, *args):
 
 		#cleaning main frame
 		for k in self.frame.winfo_children():
 			k.destroy()
+
+		#receive languages from the checkboxes of choice page
+		self.langs = [lan for lan in all_langs if self.checkbox[lan].get()]
+
+		#check number of languages
+		if len(self.langs) > 1:
+			self.start_page()
+
+		else:
+			#create the support frame for warning page and label for warning text
+			self.frm = tk.Frame(self.frame, background = self.bg_clr)
+			self.frm.pack(expand = True, fill = tk.BOTH)
+			lb = ttk.Label(self.frm, text = 'Please chose at least two languages', 
+								font = self.highlightFont2, foreground = 'white', background = self.bg_clr)
+			lb.place(relx = 0.5, rely = 0.2, anchor = 'n')
+
+			#create button for back to chose page with command self.chose_page()  
+			lb_bt = tk.Button(self.frm, text = 'Back', font = self.highlightFont3, padx = 50, activebackground = self.bg_clr,
+								activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
+			lb_bt.bind('<Button-1>', self.chose_page)
+			lb_bt.place(relx = 0.5, rely = 0.8, anchor = 'n')
+
+			#create buttons for back and exit 
+			but_back = tk.Button(self.frame, text = '<', font = self.highlightFont2, activebackground = self.bg_clr,
+									activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
+			but_back.bind('<Button-1>', self.chose_page)
+			but_back.place(relx = 0.02, rely = 0.02)
+			but_quit = tk.Button(self.frame, text = 'x', font = self.highlightFont2, activebackground = self.bg_clr,
+									activeforeground = self.button_color, fg = self.button_color, background = self.bg_clr)
+			but_quit.bind('<Button-1>', quit)
+			but_quit.place(relx = 0.91, rely = 0.02)
+			
+	def start_page(self, *args):
 
 		#create the support frame for example page and label for task
 		self.frm = tk.Frame(self.frame, background = self.bg_clr)
@@ -154,9 +187,6 @@ class StartProc:
 
 	def start(self, *args):
 
-		#receive languages from the checkboxes of choice page
-		self.langs = [lan for lan in all_langs if self.checkbox[lan].get()]
-		
 		#create the main instance of process
 		self.proc = Proc(self.langs)
 
