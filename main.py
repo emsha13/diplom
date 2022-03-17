@@ -129,6 +129,10 @@ class StartProc:
 			
 	def start_page(self, *args):
 
+		#cleaning main frame
+		for k in self.frame.winfo_children():
+			k.destroy()
+			
 		#create the support frame for example page and label for task
 		self.frm = tk.Frame(self.frame, background = self.bg_clr)
 		self.frm.pack(expand = True, fill = tk.BOTH)
